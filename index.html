@@ -284,12 +284,12 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <h2>Let's have a chat</h2>
         <p>Whether you have a deadline next week or just an idea you'd like to fund, I'm happy to talk it through. The first call is free and there's no obligation. I'll get back to you within two working days.</p>
         <dl class="details">
-          <div><dt>Email</dt><dd>kelly.tsanova@gmail.com</dd></div>
+          <div><dt>Email</dt><dd>kelly@ktconsulting.co</dd></div>
           <div><dt>Based in</dt><dd>United Kingdom · working remotely worldwide</dd></div>
           <div><dt>LinkedIn</dt><dd>linkedin.com/in/kelly-tsanova-61b0494b</dd></div>
         </dl>
       </div>
-      <form id="enquiry" name="contact" method="POST" action="https://formsubmit.co/kelly.tsanova@gmail.com" novalidate>
+      <form id="enquiry" name="contact" method="POST" action="https://formsubmit.co/kelly@ktconsulting.co" novalidate>
         <input type="hidden" name="_subject" value="New enquiry from ktconsulting.co">
         <input type="hidden" name="_template" value="table">
         <p hidden><label>Leave this empty<input name="_honey"></label></p>
@@ -304,7 +304,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <label for="f-deadline">Deadline, if there is one<input id="f-deadline" name="deadline" type="date"></label>
         <label for="f-msg">Tell me a little about it<textarea id="f-msg" name="message" required></textarea></label>
         <button class="btn primary" type="submit">Send to Kelly</button>
-        <p class="note" id="form-note">Your message goes straight to Kelly. You can also email kelly.tsanova@gmail.com.</p>
+        <p class="note" id="form-note">Your message goes straight to Kelly. You can also email kelly@ktconsulting.co.</p>
       </form>
     </div>
   </section>
@@ -312,7 +312,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 
 <footer class="site">
   <div class="wrap">
-    <span>© 2026 KT Consulting · kelly.tsanova@gmail.com</span>
+    <span>© 2026 KT Consulting · kelly@ktconsulting.co</span>
   </div>
 </footer>
 
@@ -348,14 +348,14 @@ form.addEventListener("submit", async e => {
   const btn = form.querySelector("button[type=submit]");
   btn.disabled = true;
   try {
-    const res = await fetch("https://formsubmit.co/ajax/kelly.tsanova@gmail.com", { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) });
+    const res = await fetch("https://formsubmit.co/ajax/kelly@ktconsulting.co", { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) });
     if (!res.ok) throw new Error(res.status);
     form.reset();
     note.className = "sent";
     note.textContent = "Thanks, your message has been sent. Kelly will reply within two working days.";
   } catch (err) {
     note.className = "note";
-    note.textContent = "Your message couldn't be sent just now. Please try again, or email kelly.tsanova@gmail.com.";
+    note.textContent = "Your message couldn't be sent just now. Please try again, or email kelly@ktconsulting.co.";
   } finally {
     btn.disabled = false;
   }
