@@ -136,6 +136,10 @@ textarea { min-height: 120px; resize: vertical; }
 .sent { padding: 12px 14px; border-radius: 4px; background: var(--bg); border: 1px solid var(--accent); font-size: 15px; }
 
 footer.site { border-top: 1px solid var(--line); background: var(--surface); font-size: 14px; color: var(--muted); }
+footer.site a { color: inherit; }
+.policy { max-width: 72ch; }
+.policy h3 { margin-top: 28px; }
+.policy ul { padding-left: 20px; }
 footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-block: 24px; }
 
 @media (max-width: 820px) {
@@ -284,12 +288,12 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <h2>Let's have a chat</h2>
         <p>Whether you have a deadline next week or just an idea you'd like to fund, I'm happy to talk it through. The first call is free and there's no obligation. I'll get back to you within two working days.</p>
         <dl class="details">
-          <div><dt>Email</dt><dd>kelly@ktconsulting.co</dd></div>
+          <div><dt>Email</dt><dd><a class="em" href="#contact" data-view="contact">kelly [at] ktconsulting.co</a></dd></div>
           <div><dt>Based in</dt><dd>United Kingdom · working remotely worldwide</dd></div>
           <div><dt>LinkedIn</dt><dd>linkedin.com/in/kelly-tsanova-61b0494b</dd></div>
         </dl>
       </div>
-      <form id="enquiry" name="contact" method="POST" action="https://formsubmit.co/kelly@ktconsulting.co" novalidate>
+      <form id="enquiry" name="contact" method="POST" novalidate>
         <input type="hidden" name="_subject" value="New enquiry from ktconsulting.co">
         <input type="hidden" name="_template" value="table">
         <p hidden><label>Leave this empty<input name="_honey"></label></p>
@@ -304,20 +308,45 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <label for="f-deadline">Deadline, if there is one<input id="f-deadline" name="deadline" type="date"></label>
         <label for="f-msg">Tell me a little about it<textarea id="f-msg" name="message" required></textarea></label>
         <button class="btn primary" type="submit">Send to Kelly</button>
-        <p class="note" id="form-note">Your message goes straight to Kelly. You can also email kelly@ktconsulting.co.</p>
+        <p class="note" id="form-note">Your message goes straight to Kelly. See the <a href="#privacy" data-view="privacy">privacy notice</a> for how your details are used.</p>
       </form>
+    </div>
+  </section>
+  <section id="privacy" class="wrap" hidden>
+    <div class="stack policy">
+      <span class="eyebrow">Privacy notice</span>
+      <h2>How I look after your details</h2>
+      <p>This notice explains what happens to the information you share through this website. KT Consulting is run by Kelly Tsanova, a sole trader based in the United Kingdom, who is responsible for your data. If you have a question about it, email <a class="em" href="#contact" data-view="contact">kelly [at] ktconsulting.co</a>.</p>
+      <h3>What I collect</h3>
+      <p>If you use the contact form, I receive your name, email address, organisation, the topic and deadline you choose, and your message. If you email me directly, I receive whatever you include in your email. The site has no accounts, no analytics and no tracking cookies.</p>
+      <h3>Why I use it</h3>
+      <p>I use your details only to reply to your enquiry and, if we decide to work together, to prepare a proposal and contract. The legal basis is my legitimate interest in responding to people who contact me, or taking steps at your request before entering a contract. I never sell your details or add you to a mailing list.</p>
+      <h3>Who else handles it</h3>
+      <ul>
+        <li><strong>FormSubmit</strong> (formsubmit.co) passes contact form messages on to my inbox.</li>
+        <li><strong>Namecheap Private Email</strong> hosts my mailbox, where enquiries are stored.</li>
+        <li><strong>GitHub Pages</strong> hosts this website and, like any web host, records visitors' IP addresses for security.</li>
+        <li><strong>Google Fonts</strong> supplies the typefaces, so your browser sends your IP address to Google when the page loads.</li>
+      </ul>
+      <p>Some of these providers are based in the United States. They protect personal data under their own terms, including safeguards for international transfers.</p>
+      <h3>How long I keep it</h3>
+      <p>I keep enquiries for up to two years, then delete them. If you become a client, I keep project and invoicing records for six years, as UK tax rules require.</p>
+      <h3>Your rights</h3>
+      <p>You can ask to see the information I hold about you, have it corrected or deleted, or object to how I use it. Email me and I'll respond within one month. If you're unhappy with how I've handled your data, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk/make-a-complaint/" rel="noopener">ico.org.uk</a>.</p>
+      <p class="note">Last updated 23 October 2026.</p>
     </div>
   </section>
 </main>
 
 <footer class="site">
   <div class="wrap">
-    <span>© 2026 KT Consulting · kelly@ktconsulting.co</span>
+    <span>© 2026 KT Consulting · <a class="em" href="#contact" data-view="contact">kelly [at] ktconsulting.co</a></span>
+    <a href="#privacy" data-view="privacy">Privacy notice</a>
   </div>
 </footer>
 
 <script>
-const views = ["home", "services", "about", "contact"];
+const views = ["home", "services", "about", "contact", "privacy"];
 function show(v) {
   if (!views.includes(v)) v = "home";
   views.forEach(id => { document.getElementById(id).hidden = id !== v; });
@@ -336,6 +365,16 @@ document.querySelectorAll("img.headshot").forEach(i => { if (!i.getAttribute("sr
 show((location.hash || "#home").slice(1));
 
 
+// The address is assembled here so it isn't sitting in the page for spam bots to collect.
+const EMAIL = ["kelly", "ktconsulting.co"].join("@");
+const FORM_KEY = EMAIL;
+document.querySelectorAll("a.em").forEach(a => {
+  a.textContent = EMAIL;
+  a.href = "mailto:" + EMAIL;
+  a.removeAttribute("data-view");
+});
+document.getElementById("enquiry").action = "https://formsubmit.co/" + FORM_KEY;
+
 const form = document.getElementById("enquiry");
 form.addEventListener("submit", async e => {
   e.preventDefault();
@@ -348,14 +387,14 @@ form.addEventListener("submit", async e => {
   const btn = form.querySelector("button[type=submit]");
   btn.disabled = true;
   try {
-    const res = await fetch("https://formsubmit.co/ajax/kelly@ktconsulting.co", { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) });
+    const res = await fetch("https://formsubmit.co/ajax/" + FORM_KEY, { method: "POST", headers: { "Accept": "application/json" }, body: new FormData(form) });
     if (!res.ok) throw new Error(res.status);
     form.reset();
     note.className = "sent";
     note.textContent = "Thanks, your message has been sent. Kelly will reply within two working days.";
   } catch (err) {
     note.className = "note";
-    note.textContent = "Your message couldn't be sent just now. Please try again, or email kelly@ktconsulting.co.";
+    note.textContent = "Your message couldn't be sent just now. Please try again, or email " + EMAIL + ".";
   } finally {
     btn.disabled = false;
   }
