@@ -188,6 +188,8 @@ footer.site a { color: inherit; }
 .cases { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .case { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 22px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .case h3 { margin: 0; font-size: 1.1rem; text-wrap: balance; }
+.case h3 a { color: var(--ink); text-decoration: none; }
+.case h3 a:hover { color: var(--accent); }
 .case .where { font: 500 12px var(--mono); letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
 .case p { margin: 0; font-size: 15px; color: var(--muted); }
 .case .result { margin-top: auto; padding-top: 10px; border-top: 1px solid var(--line); color: var(--ink); }
@@ -226,6 +228,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       <a href="#home" data-view="home">Home</a>
       <a href="#services" data-view="services">Services</a>
       <a href="#opportunities" data-view="opportunities">Funding calls</a>
+      <a href="/insights/">Insights</a>
       <a href="#about" data-view="about">About</a>
       <a href="#contact" data-view="contact" class="cta">Book a call</a>
     </nav>
@@ -266,6 +269,16 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
         <h3>Sectors and donors</h3>
         <ul class="deliver" aria-label="Sectors and donors"><li>Democracy and governance</li><li>Civil society strengthening</li><li>Human rights</li><li>Conflict recovery</li><li>Humanitarian and development</li><li>Livelihoods and food security</li><li>Gender-based violence</li><li>Mine action</li><li>Child protection</li><li>Refugee resettlement</li><li>US State Department</li><li>USAID</li><li>NED</li><li>EU</li><li>UN agencies</li><li>FCDO</li><li>Irish Aid</li><li>DFAT</li><li>SDC</li></ul>
       </div>
+    </div>
+    <div class="work">
+      <span class="eyebrow">Insights</span>
+      <h2>Practical advice, free to use</h2>
+      <div class="cases">
+        <article class="case"><span class="where">Proposal development</span><h3><a href="/insights/how-to-write-an-eu-concept-note/">How to write an EU concept note that gets you to the full proposal</a></h3><p>Write to the evaluation grid, show the logic and give partners real roles.</p></article>
+        <article class="case"><span class="where">Funding search</span><h3><a href="/insights/go-no-go-decide-which-grants-to-bid-for/">Go or no-go? How to decide which grants are worth bidding for</a></h3><p>A higher win rate starts with saying no to the wrong calls.</p></article>
+        <article class="case"><span class="where">Grant management</span><h3><a href="/insights/getting-local-partners-ready-for-donor-due-diligence/">Getting local partners ready for donor due diligence</a></h3><p>What donors check, and how to prepare before there's a call.</p></article>
+      </div>
+      <p><a href="/insights/">All insights</a></p>
     </div>
   </section>
 
@@ -475,7 +488,7 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
 <footer class="site">
   <div class="wrap">
     <span>© 2026 KT Consulting · <a class="em" href="#contact" data-view="contact">kelly [at] ktconsulting.co</a></span>
-    <a href="#privacy" data-view="privacy">Privacy notice</a>
+    <span><a href="/insights/">Insights</a> · <a href="#privacy" data-view="privacy">Privacy notice</a></span>
   </div>
 </footer>
 
