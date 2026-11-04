@@ -131,6 +131,7 @@ main section { padding-block: 56px 72px; }
 .pkg-head { margin-top: 36px; gap: 10px; } .pkg-head h3 { margin: 0; font-size: 1.35rem; } .pkg-head p { margin: 0; color: var(--muted); }
 .packages { margin-top: 20px; grid-template-columns: repeat(3, 1fr); } .packages .fee { font-size: 15px; color: var(--ink); font-weight: 600; }
 .founding { margin-top: 16px; }
+.tiers { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 4px; border-top: 1px solid var(--line); padding-top: 16px; } .tiers p { margin: 0; font-size: 15px; }
 .watch form { display: flex; flex-direction: column; gap: 14px; }
 label.check { flex-direction: row; align-items: center; gap: 10px; font-weight: 500; } label.check input { width: auto; }
 @media (max-width: 1000px) { .packages { grid-template-columns: 1fr 1fr; } }
@@ -409,6 +410,8 @@ footer.site .wrap { display: flex; flex-wrap: wrap; justify-content: space-betwe
       <div><span class="eyebrow">Hourly</span><strong>£50 <small>per hour</small></strong><span>Reviews, editing and short pieces of advice</span></div>
       <div><span class="eyebrow">Daily</span><strong>£375 <small>per day</small></strong><span>Proposal development, grant management and strategy work</span></div>
       <div><span class="eyebrow">Local partners</span><strong>£300 <small>per day</small></strong><span>Reduced rate for local and national organisations</span></div>
+      <div class="tiers"><span class="eyebrow">Longer assignments</span>
+        <p><strong>10 to 19 days:</strong> £350 per day · <strong>20 days or more:</strong> £325 per day · <strong>Monthly retainer</strong> (at least 4 days a month for 3 months or more): £325 per day, with days booked in advance. Local partner rate stays at £300.</p></div>
       <p class="note">Fixed-fee quotes are available for full proposals and retainers. Rates exclude VAT, travel and per diems. I'm happy to quote in USD or EUR.</p>
     </div>
     <ol class="process" aria-label="How a proposal comes together">
